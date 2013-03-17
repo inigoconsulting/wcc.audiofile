@@ -20,7 +20,7 @@
 
         <tal:bodytext content="structure python:view.widgets['IBodyText.text'].render()"/>
 
-        <table tal:define="audio context/file"
+        <table tal:define="audio context/file|nothing"
             tal:condition="audio"
             style="width:100%;">
             <tr>
