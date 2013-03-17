@@ -29,6 +29,8 @@ setup(name='wcc.audiofile',
           'plone.app.dexterity',
           'plone.namedfile [blobs]',
           'collective.grok',
+          'collective.miscbehaviors',
+          'plone.multilingualbehavior'
           # -*- Extra requirements: -*-
       ],
       extras_require={

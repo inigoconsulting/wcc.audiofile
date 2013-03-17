@@ -1,0 +1,53 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:use-macro="context/main_template/macros/master"
+      i18n:domain="wcc.audiofile">
+<head>
+    <metal:block fill-slot="javascript_head_slot">
+        <script tal:define="navroot context/@@plone_portal_state/navigation_root_url"
+                tal:attributes="src string:${navroot}/++resource++wcc.audiofile/script.js">
+        </script>
+    </metal:block>
+</head>
+<body>
+
+
+<metal:main fill-slot="content-core">
+    <metal:content-core define-macro="content-core">
+
+        <tal:bodytext content="structure python:view.widgets['IBodyText.text'].render()"/>
+
+        <table tal:define="audio context/file"
+            tal:condition="audio"
+            style="width:100%;">
+            <tr>
+                <td>Listen: 
+                        <div class="audioSupported">
+                            <audio controls>
+                                <source tal:attributes="src string:${context/absolute_url}/@@download/file/${audio/filename};
+                                                        type audio/contentType;" />
+                            </audio>
+                        </div>
+                        <div class="audioNotSupported">
+                            <a class="autoFlowPlayer audio" 
+                                tal:attributes="href string:${context/absolute_url}/@@download/file/${audio/filename}"></a>
+                        </div>
+                </td>
+                <td>
+                    <a tal:attributes="href string:${context/absolute_url}/@@download/file/${audio/filename}">
+                    Download
+                    </a>
+                </td>
+            </tr>
+        </table>
+
+
+  </metal:content-core>
+</metal:main>
+
+</body>
+</html>
+
