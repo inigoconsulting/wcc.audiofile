@@ -57,8 +57,7 @@
                                                     Listen:
                                                     <div class="audioSupported">
                                                         <audio controls>
-                                                            <source tal:attributes="src string:${item_url}/@@download/file/${audio/filename};
-                                                                type audio/contentType;" />
+                                                            <source tal:attributes="src string:${item_url}/@@download/file/${audio/filename};" />
                                                         </audio>
                                                     </div>
                                                     <div class="audioNotSupported">
